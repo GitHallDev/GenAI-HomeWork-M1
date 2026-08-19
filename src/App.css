@@ -1,0 +1,188 @@
+/* ── App Shell ──────────────────────────────────────────────────────────────── */
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: var(--surface-1);
+  overflow: hidden;
+}
+
+/* ── Navigation ─────────────────────────────────────────────────────────────── */
+.app-nav {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-0);
+  gap: 24px;
+  flex-shrink: 0;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.nav-logo {
+  font-size: 22px;
+  color: var(--amber);
+  line-height: 1;
+}
+
+.nav-title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: .5px;
+}
+
+.nav-tabs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+}
+
+.nav-tab {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  border-radius: 7px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all .18s;
+  font-weight: 500;
+}
+
+.nav-tab:hover { background: var(--surface-2); color: var(--text-primary); }
+
+.nav-tab.active {
+  background: color-mix(in srgb, var(--amber) 10%, var(--surface-2));
+  color: var(--amber);
+}
+
+.nav-right {
+  flex-shrink: 0;
+}
+
+.ollama-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 99px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+}
+
+.ollama-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.ollama-status.ok .ollama-dot   { background: var(--green); box-shadow: 0 0 6px var(--green); }
+.ollama-status.warn .ollama-dot { background: var(--amber); box-shadow: 0 0 6px var(--amber); animation: blink 2s step-end infinite; }
+
+@keyframes blink { 50% { opacity: 0; } }
+
+.ollama-label {
+  font-size: 11.5px;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+
+/* ── Main area ──────────────────────────────────────────────────────────────── */
+.app-main {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Shared button system ───────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all .18s;
+  border: 1px solid transparent;
+  line-height: 1;
+}
+
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+
+.btn--primary {
+  background: var(--amber);
+  color: #0d0d0d;
+  border-color: var(--amber);
+}
+.btn--primary:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--amber) 85%, white);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--amber) 35%, transparent);
+}
+
+.btn--ghost {
+  background: var(--surface-2);
+  color: var(--text-secondary);
+  border-color: var(--border);
+}
+.btn--ghost:hover:not(:disabled) {
+  background: var(--surface-3);
+  color: var(--text-primary);
+}
+
+.btn--danger {
+  background: color-mix(in srgb, var(--red) 10%, var(--surface-2));
+  color: var(--red);
+  border-color: color-mix(in srgb, var(--red) 30%, transparent);
+}
+.btn--danger:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--red) 18%, var(--surface-2));
+}
+
+.btn--success {
+  background: color-mix(in srgb, var(--green) 15%, var(--surface-2));
+  color: var(--green);
+  border-color: color-mix(in srgb, var(--green) 35%, transparent);
+}
+.btn--success:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--green) 22%, var(--surface-2));
+  box-shadow: 0 0 16px color-mix(in srgb, var(--green) 25%, transparent);
+}
+
+.btn--sm { padding: 5px 12px; font-size: 12px; }
+.btn--lg { padding: 12px 28px; font-size: 15px; }
+
+/* ── Select ─────────────────────────────────────────────────────────────────── */
+.rp-select {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 7px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color .18s;
+}
+
+.rp-select:hover { border-color: var(--amber-dim); }
+.rp-select:focus { border-color: var(--amber); }
+.rp-select:disabled { opacity: .45; cursor: not-allowed; }

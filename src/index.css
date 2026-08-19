@@ -1,0 +1,72 @@
+/* ── Google Fonts ───────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap');
+
+/* ── Design tokens (dark industrial / studio) ───────────────────────────────── */
+:root {
+  /* Background layers */
+  --surface-0: #0b0b0e;
+  --surface-1: #0f0f13;
+  --surface-2: #161619;
+  --surface-3: #1e1e24;
+
+  /* Borders */
+  --border: rgba(255, 255, 255, 0.07);
+
+  /* Text */
+  --text-primary:   #edeae4;
+  --text-secondary: #a09c96;
+  --text-muted:     #5c5956;
+
+  /* Accent — warm amber/gold */
+  --amber:     #e8a847;
+  --amber-dim: #9a6e2e;
+
+  /* Semantic */
+  --green: #4eca8b;
+  --red:   #e05a5a;
+  --blue:  #5ba4e0;
+
+  /* Typography */
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+}
+
+/* ── Reset ──────────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 14px;
+  background: var(--surface-0);
+  color: var(--text-secondary);
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--text-primary);
+}
+
+strong { color: var(--text-primary); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--surface-3);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--amber-dim); }
+
+/* Selection */
+::selection {
+  background: color-mix(in srgb, var(--amber) 25%, transparent);
+  color: var(--text-primary);
+}

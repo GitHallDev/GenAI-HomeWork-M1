@@ -1,0 +1,126 @@
+/* ── Wave loader ───────────────────────────────────────────────────────────── */
+.wave-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 32px 0;
+}
+
+.wave-bars {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 48px;
+}
+
+.wave-bar {
+  width: 4px;
+  height: 100%;
+  background: var(--amber);
+  border-radius: 4px;
+  animation: wave-bounce 1s ease-in-out infinite alternate;
+  transform-origin: bottom;
+}
+
+@keyframes wave-bounce {
+  0%   { transform: scaleY(.15); opacity: .4; }
+  100% { transform: scaleY(1);   opacity: 1; }
+}
+
+/* ── Thinking orb ──────────────────────────────────────────────────────────── */
+.thinking-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 36px 0;
+}
+
+.thinking-orb {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orb-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid transparent;
+}
+
+.orb-ring--1 {
+  border-top-color: var(--amber);
+  animation: spin 1.8s linear infinite;
+}
+.orb-ring--2 {
+  inset: 8px;
+  border-right-color: var(--amber-dim);
+  animation: spin 2.4s linear infinite reverse;
+}
+.orb-ring--3 {
+  inset: 18px;
+  border-bottom-color: var(--amber);
+  animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.orb-icon {
+  font-size: 20px;
+  color: var(--amber);
+  animation: pulse-opacity 2s ease-in-out infinite;
+}
+
+@keyframes pulse-opacity {
+  0%, 100% { opacity: .5; }
+  50%       { opacity: 1; }
+}
+
+.loader-label {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--text-primary);
+  margin: 0;
+  font-weight: 500;
+}
+
+.loader-tip {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  margin: 0;
+  text-align: center;
+  max-width: 320px;
+  animation: fade-shift .5s ease both;
+  font-style: italic;
+}
+
+@keyframes fade-shift {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Skeleton ──────────────────────────────────────────────────────────────── */
+.skeleton-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 8px 0;
+}
+
+.skeleton-line {
+  height: 13px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--surface-3) 25%, var(--surface-2) 50%, var(--surface-3) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
